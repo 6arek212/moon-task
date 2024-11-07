@@ -21,7 +21,7 @@ to run redis on docker
 
 <br/>
 
-use the calls.http file to send an http request / or just use postman
+use the **calls.http** file to send an http request / or just use postman
 
     POST http://localhost:5000/api/tasks/delayedTask
     Content-Type: application/json
