@@ -11,6 +11,7 @@ run the following commands first:
     npm i
 
 <br/>
+to run redis on docker
 
     docker-compose up -d
 
