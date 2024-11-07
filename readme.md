@@ -11,7 +11,7 @@ run the following commands first:
     npm i
 
 <br/>
-to run redis on docker
+to run redis on docker or change the redis host/port in the configs/index.ts file
 
     docker-compose up -d
 
