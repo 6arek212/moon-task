@@ -11,9 +11,6 @@ export class DelayedTaskService implements IDelayedTaskService {
     constructor(repository: IDelayedTaskRepository, streamKey: string) {
         this.repository = repository;
         this.streamKey = streamKey
-
-        // run background jobs
-
     }
 
     public async init() {
