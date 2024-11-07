@@ -37,7 +37,7 @@ use the **calls.http** file to send an http request / or just use postman
 
 To scale this solution, we would require locks on each message to ensure that only one consumer processes any given task. However, this approach is limited in scalability due to potential contention issues: all consumers will read the same message and only one will acquire the lock to process it. Consequently, even with multiple consumers (N consumers) and N tasks, only one task can be processed at a time, restricting the throughput and diminishing the benefits of horizontal scaling.
 
-2- **Picked** Redis Streams and Consumer groups
+2- **Picked this one:** Redis Streams and Consumer groups
 In this solution, a producer inserts tasks into a Redis stream, where they are picked up by one of the consumers in a consumer group. This setup allows seamless scaling of both producers and consumers without any concurrency issues, as Redis consumer groups ensure that each task is delivered to only one consumer within the group.
 
 Additionally, each consumer process a task and acknowledged it, Unacknowledged tasks can be re-read and rescheduled, ensuring reliable task processing even in cases where a consumer crashes or loses connection. This approach offers both scalability and resilience, making it well-suited for high-throughput environments.
