@@ -17,7 +17,7 @@ export class RedisDelayedTaskRepository implements IDelayedTaskRepository {
 
 
     /**
-     * blockTTL - 
+     * 
      * @param id if provided will return entries that are pending for the consumer sending the command with IDs greater than the one provided 
      * @param blockTTL blocking tll, 0 to suspend the call till a new message arrives 
      * @returns 
@@ -45,14 +45,14 @@ export class RedisDelayedTaskRepository implements IDelayedTaskRepository {
             // // Process each message in the stream
             for (const [messageId, messageData] of messages) {
                 const jsonTask = JSON.parse(messageData[1])
-                result.push(new DelayedTask(messageId, jsonTask['message'], new Date(jsonTask['time'])))
+                result.push(new DelayedTask(jsonTask['message'], new Date(jsonTask['time']), messageId))
             }
         }
         return result
     }
 
     async publishToStream(streamName: string, data: any, id?: string): Promise<string | null> {
-        id = id || '*'
+        id = id || '*' // * for auto generate id
         return await this.publishClient.xadd(streamName, id, 'messageData', JSON.stringify(data))
     }
 

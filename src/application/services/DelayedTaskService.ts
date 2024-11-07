@@ -88,7 +88,7 @@ export class DelayedTaskService implements IDelayedTaskService {
 
             setTimeout(async () => {
                 console.log(delayedTask.message)
-                await this.repository.ackMessage(configs.STREAM_KEY, configs.STREAM_CONSUMER_GROUP_NAME, delayedTask.id)
+                await this.repository.ackMessage(configs.STREAM_KEY, configs.STREAM_CONSUMER_GROUP_NAME, delayedTask.id!)
             }, runAfter)
         }
     }
