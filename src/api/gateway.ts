@@ -4,8 +4,7 @@ import router from './endpoints';
 
 
 /**
- * Main API class that proves resolving and wrapping of various endpoints and methods.
- * New endpoint can be implemented and placed in `endpoints` folder
+ * Main application gateway
  */
 class Gateway {
   private readonly app: Express
