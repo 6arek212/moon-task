@@ -48,3 +48,7 @@ Additionally, each consumer process a task and acknowledged it, Unacknowledged t
 
 - **Scalability**: The application leverages Redis streams and consumer groups to distribute tasks across multiple consumers, making it horizontally scalable.
 - **Resilience**: The application reschedules tasks which were no acknowledged by the current consumer.
+
+## Architecture Design
+
+![ddd_layers (1)](https://github.com/user-attachments/assets/606822f2-38fb-4eb9-b269-a4b8b2f36403)
